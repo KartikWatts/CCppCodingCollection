@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1476637779 source:e:\new folder\velma and triplets\main.c
+	<stdio.h>
+	<stdlib.h>
+	<inttypes.h>
+

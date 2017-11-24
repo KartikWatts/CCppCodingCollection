@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1490293520 source:e:\new folder\equal stacks\main.cpp
+	<math.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<assert.h>
+	<limits.h>
+	<stdbool.h>
+

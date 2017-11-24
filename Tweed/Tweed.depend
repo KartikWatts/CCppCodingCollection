@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1476725872 source:e:\new folder\tweed\main.cpp
+	<iostream>
+	<string.h>
+	<stdlib.h>
+
