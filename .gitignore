@@ -1,0 +1,8 @@
+*.cbp
+*.depend
+*.layout
+
+*bin/Debug
+
+obj
+bin
