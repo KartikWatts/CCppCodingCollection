@@ -122,6 +122,58 @@ inline T readInt()
     return n * s;
 }
 
+vector<PII> get_valid_neighbours(bool **vis, PII cell, int n)
+{
+
+    int x = cell.first, y = cell.second;
+    vector<PII> neighbours_list;
+    if (x - 1 >= 0 && !vis[x - 1][y])
+        neighbours_list.emplace_back(make_pair(x - 1, y));
+    if (x + 1 < n && !vis[x + 1][y])
+        neighbours_list.emplace_back(make_pair(x + 1, y));
+    if (y - 1 >= 0 && !vis[x][y - 1])
+        neighbours_list.emplace_back(make_pair(x, y - 1));
+    if (y + 1 < n && !vis[x][y + 1])
+        neighbours_list.emplace_back(make_pair(x, y + 1));
+
+    return neighbours_list;
+}
+
+int find_shortest_distance(bool **vis, PII s, PII d, int n)
+{
+    int distance = 1;
+    PII node = s;
+    queue<PII> que, next_neighbours_list;
+    que.push(s);
+    while (que.size() != 0)
+    {
+        // cout << "Current Node: " << que.front().first << ", " << que.front().second << endl;
+        vis[que.front().first][que.front().second] = true;
+
+        vector<pair<int, int>> neighbours_list = get_valid_neighbours(vis, que.front(), n);
+        // cout << "Current Distance: " << distance << endl;
+        for (auto neighbour : neighbours_list)
+        {
+            // cout << "Neighbour Node: " << neighbour.first << ", " << neighbour.second << endl;
+
+            if (neighbour == d)
+            {
+                // cout << "Found here\n";
+                return distance;
+            }
+            next_neighbours_list.push(neighbour);
+        }
+        que.pop();
+        if (que.empty())
+        {
+            que = next_neighbours_list;
+            next_neighbours_list = {};
+            distance++;
+        }
+    }
+    return INT32_MAX;
+}
+
 int main()
 {
     int t;
@@ -131,11 +183,14 @@ int main()
         int n;
         cin >> n;
         char **a = new char *[n];
+        bool **vis = new bool *[n];
         for (int i = 0; i < n; i++)
         {
             a[i] = new char[n];
+            vis[i] = new bool[n];
         }
-        pair<int, int> p1(-1, -1), p2(-1, -1), g1(-1, -1), g2(-1, -1);
+
+        PII p1(-1, -1), p2(-1, -1), g1(-1, -1), g2(-1, -1);
 
         for (int i = 0; i < n; i++)
         {
@@ -159,9 +214,78 @@ int main()
             }
         }
 
+        // for (int i = 0; i < n; i++)
+        // {
+        //     for (int j = 0; j < n; j++)
+        //     {
+        //         cout << vis[i][j];
+        //     }
+        // }
+
         for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                vis[i][j] = false;
+                if (a[i][j] == '#')
+                    vis[i][j] = true;
+            }
+        }
+        int p1g1 = find_shortest_distance(vis, p1, g1, n);
+
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                vis[i][j] = false;
+                if (a[i][j] == '#')
+                    vis[i][j] = true;
+            }
+        }
+        int p1g2 = find_shortest_distance(vis, p1, g2, n);
+
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                vis[i][j] = false;
+                if (a[i][j] == '#')
+                    vis[i][j] = true;
+            }
+        }
+        int p2g1 = find_shortest_distance(vis, p2, g1, n);
+
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                vis[i][j] = false;
+                if (a[i][j] == '#')
+                    vis[i][j] = true;
+            }
+        }
+        int p2g2 = find_shortest_distance(vis, p2, g2, n);
+
+        // cout << p1g1 << "\t" << p1g2 << "\t" << p2g1 << "\t" << p2g2 << endl;
+
+        if ((p1g1 != INT32_MAX || p2g1 != INT32_MAX) && (p1g2 != INT32_MAX || p2g2 != INT32_MAX))
+        {
+            cout << "Yes\n";
+            cout << max(min(p1g1, p2g1), min(p1g2, p2g2));
+            cout << "\n";
+        }
+        else
+        {
+            cout << "No\n";
+        }
+
+        for (int i = 0; i < n; i++)
+        {
             delete[] a[i];
+            delete[] vis[i];
+        }
         delete[] a;
+        delete[] vis;
     }
 
     return 0;

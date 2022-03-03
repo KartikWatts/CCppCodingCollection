@@ -122,6 +122,12 @@ inline T readInt()
     return n * s;
 }
 
+// 4 3 0 0 0
+// *..*
+// .#..
+// ###^
+// .#.^
+
 vector<pair<int, int>> get_valid_neighbours(bool **vis, pair<int, int> cell, int n)
 {
 
