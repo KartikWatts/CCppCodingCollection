@@ -267,11 +267,66 @@ int main()
         int p2g2 = find_shortest_distance(vis, p2, g2, n);
 
         // cout << p1g1 << "\t" << p1g2 << "\t" << p2g1 << "\t" << p2g2 << endl;
+        int p1g1g2 = INT32_MAX, p2g1g2 = INT32_MAX;
+        if (p1g1 != INT32_MAX && p1g2 != INT32_MAX)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    vis[i][j] = false;
+                    if (a[i][j] == '#')
+                        vis[i][j] = true;
+                }
+            }
+            int temp1 = p1g1 + find_shortest_distance(vis, g1, g2, n);
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    vis[i][j] = false;
+                    if (a[i][j] == '#')
+                        vis[i][j] = true;
+                }
+            }
+            int temp2 = p1g2 + find_shortest_distance(vis, g2, g1, n);
+
+            p1g1g2 = min(temp1, temp2);
+        }
+
+        if (p2g1 != INT32_MAX && p2g2 != INT32_MAX)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    vis[i][j] = false;
+                    if (a[i][j] == '#')
+                        vis[i][j] = true;
+                }
+            }
+            int temp1 = p2g1 + find_shortest_distance(vis, g1, g2, n);
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    vis[i][j] = false;
+                    if (a[i][j] == '#')
+                        vis[i][j] = true;
+                }
+            }
+            int temp2 = p2g2 + find_shortest_distance(vis, g2, g1, n);
+
+            p2g1g2 = min(temp1, temp2);
+        }
 
         if ((p1g1 != INT32_MAX || p2g1 != INT32_MAX) && (p1g2 != INT32_MAX || p2g2 != INT32_MAX))
         {
             cout << "Yes\n";
-            cout << max(min(p1g1, p2g1), min(p1g2, p2g2));
+            int solution1 = max(min(p1g1, p2g1), min(p1g2, p2g2));
+            cout << min(solution1, min(p1g1g2, p2g1g2));
             cout << "\n";
         }
         else
