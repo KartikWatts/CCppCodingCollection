@@ -1,0 +1,75 @@
+//Author : 5hfT
+//data:11th Feb,2020
+//Task:shortcut to run a cpp file which will take input and show output of the programme automatically with programme runtime status such as memory comsume and execution time
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Compile and run",
+			"type": "shell",
+			"command": "echo Building... > __Build_Config_VS/output.txt && g++ -g ${relativeFile} -o output.out && clear && timeout 10 /usr/bin/time -v --output __Build_Config_VS/sys.txt ./output.out < __Build_Config_VS/input.txt > __Build_Config_VS/output.txt && clear && rm *out && clear && ./__Build_Config_VS/testSolution.sh",
+			"presentation": {
+				"reveal": "silent",
+				"revealProblems": "onProblem",
+				"close": true
+			},
+			// "args": [
+			// 	"echo",
+			// 	"'Building...'",
+			// 	">",
+			// 	"output.txt",
+			// 	"&&",
+			// 	"g++",
+			// 	"-g",
+			// 	"${relativeFile}",
+			// 	"-o",
+			// 	"output.out",
+			// 	"&&",
+			// 	"clear",
+			// 	"&&",
+			// 	"timeout",
+			// 	"10",
+			// 	"/usr/bin/time",
+			// 	"-v",
+			// 	"--output",
+			// 	"sys.txt",
+			// 	"./output.out",
+			// 	"<",
+			// 	"input.txt",
+			// 	">",
+			// 	"output.txt",
+			// 	"&&",
+			// 	"echo",
+			// 	"output.txt5",
+			// 	">",
+			// 	"difference.txt",
+			// 	"&&",
+			// 	"rm",
+			// 	"*out"
+			// 	// "&&",
+			// 	// "diff",
+			// 	// "-bB",
+			// 	// "output.txt",
+			// 	// "solution.txt"
+			// 	// ">",
+			// 	// "difference.txt"
+			// ],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": ["relative", "${workspaceRoot}"],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
+		}
+	]
+}
