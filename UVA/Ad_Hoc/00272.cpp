@@ -2,22 +2,6 @@
 
 Code written with love by Kartik Arora
 
-`CTRL + SHIFT + B` => BUILD THE PROGRAM TAKING INPUT FROM input.txt, AND DISPLAY OUTPUT AT output.txt, CHECKING DIFFERENCE FROM solution.txt AND CORRESPONDINGLY UPDATING difference.txt
-
-SOME INTERESTING CODE SNIPPETS:
-
-// Directly take input in a Vector of size n:
-VI v(n);
-for (int &i : v)
-    cin >> i;
-
-// Sort Vector in Descending order:
-sort(all(v), greater<int>());
-
-// Loop through elements of Vector
-for(auto el: v)
-    cout<<el;
-
 */
 #include <iostream>
 #include <string>
@@ -141,16 +125,34 @@ inline T readInt()
 
 void solve()
 {
+    char c;
+    int nthQuote = 0;
+    while (SCC(c) != EOF)
+    {
+        if (c == '"')
+        {
+            nthQuote++;
+            if (nthQuote == 1)
+                cout << "``";
+            if (nthQuote == 2)
+            {
+                nthQuote = 0;
+                cout << "''";
+            }
+        }
+        else
+            cout << c;
+    }
 }
 
 int main()
 {
     FastIO;
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        solve();
-    }
+    // int t;
+    // cin >> t;
+    // while (t--){
+    //     solve();
+    // }
+    solve();
     return 0;
 }
