@@ -37,6 +37,15 @@ for(auto el: v)
 cout<<el;
 ```
 
+```
+// Traverse through all the permutations in the array
+int i, n = 8, p[8] = {0, 1, 2, 3, 4, 5, 6, 7};
+do {
+    // 'p' takes the value of all the permutations possible.
+}
+while (next_permutation(p, p + n));
+```
+
 ## NOTES:
 
 ### From Competitive Programming 3 - Steven Halim, Felix Halim
