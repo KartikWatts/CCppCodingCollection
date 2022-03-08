@@ -127,9 +127,11 @@ void solve()
 {
     int duration, total_records;
     float down_pay, loan_amount, car_value;
-    cin >> duration >> down_pay >> loan_amount >> total_records;
-    while (duration > 0)
+    while (true)
     {
+        cin >> duration >> down_pay >> loan_amount >> total_records;
+        if (duration < 0)
+            break;
         vector<pair<int, float>> records;
         for (int i = 0; i < total_records; i++)
         {
@@ -166,8 +168,6 @@ void solve()
                  << endl;
         }
         cout << month << "\n";
-
-        cin >> duration >> down_pay >> loan_amount >> total_records;
     }
 }
 

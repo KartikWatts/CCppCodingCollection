@@ -46,6 +46,31 @@ do {
 while (next_permutation(p, p + n));
 ```
 
+```
+// Sort Structure with multiple rules
+struct Student
+{
+    string name;
+    int math;
+    int phy;
+    int total;
+}
+
+bool compareTwoStudents(Student a, Student b)
+{
+    if (a.total != b.total)
+        return a.total > b.total;
+
+    if (a.math != b.math)
+        return a.math > b.math;
+
+    return a.phy > b.phy;
+}
+
+Student a[];
+sort(a, a + 5, compareTwoStudents);
+```
+
 ## NOTES:
 
 ### From Competitive Programming 3 - Steven Halim, Felix Halim
