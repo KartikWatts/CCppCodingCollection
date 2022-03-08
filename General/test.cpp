@@ -3,7 +3,6 @@
 Code written with love by Kartik Arora
 
 */
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -136,6 +135,8 @@ int main()
     while (t--)
     {
         solve();
+        if (t)
+            cout << "\n";
     }
     return 0;
 }

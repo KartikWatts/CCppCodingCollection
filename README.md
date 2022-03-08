@@ -74,17 +74,21 @@ while (next_permutation(p, p + n));
 
     -   2<sup>10</sup> = 1024 ≈ 10<sup>3</sup>, 2<sup>20</sup> = 1048576 ≈ 10<sup>6</sup> .
     -   32-bit signed integers (int) and 64-bit signed integers (long long) have upper
-        limits of 2<sup>31 −1</sup> ≈ 2 ×109 (safe for up to ≈ 9 decimal digits) and 2<sup>63 −1</sup> ≈ 9 ×1018
+        limits of 2<sup>31 −1</sup> ≈ 2 ×10<sup>9</sup> (safe for up to ≈ 9 decimal digits) and 2<sup>63 −1</sup> ≈ 9 ×10<sup>18</sup>
         (safe for up to ≈ 18 decimal digits) respectively.
     -   Unsigned integers can be used if only non-negative numbers are required. 32-bit
         unsigned integers (unsigned int) and 64-bit unsigned integers (unsigned long
-        long) have upper limits of 2<sup>32 − 1</sup> ≈ 4 × 109 and 2<sup>64 − 1</sup> ≈ 1.8 × 1019 respectively.
+        long) have upper limits of 2<sup>32 − 1</sup> ≈ 4 × 10<sup>9</sup> and 2<sup>64 − 1</sup> ≈ 1.8 × 10<sup>19</sup> respectively.
     -   If you need to store integers ≥ 2<sup>64</sup>, use the Big Integer technique.
-    -   There are n! permutations and 2n subsets (or combinations) of n elements.
+    -   There are n! permutations and 2<sup>n</sup> subsets (or combinations) of n elements.
     -   The best time complexity of a comparison-based sorting algorithm is Ω(n log<sub>2</sub> n).
     -   Usually, O(n log<sub>2</sub> n) algorithms are sufficient to solve most contest problems.
     -   The largest input size for typical programming contest problems must be < 1M.
     -   A typical year 2013 CPU can process 100M = 10<sup>8</sup> operations in a few seconds.
+
+-   The Ad Hoc problems are
+    problems that ‘cannot be classified anywhere else’ since each problem description and its
+    corresponding solution are ‘unique’. Many Ad Hoc problems are easy
 
 -   If our array needs only to contain Boolean values (1/true and 0/false), we can use
     an alternative data structure other than an array—a C++ STL bitset. The bitset
