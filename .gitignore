@@ -14,3 +14,5 @@ bin
 .vscode
 
 __Build_Config_VS
+
+output.out
