@@ -128,7 +128,7 @@ uint64 backtrack(int n, int k)
     if (n == 0)
         return 0;
 
-    uint64 sum = (n * (uint64)(n + 1)) / (uint64)2 - k * ((uint64)(n / k) * (uint64)((n / k) + 1)) / (uint64)2;
+    uint64 sum = (n * (uint64)(n + 1)) / 2 - k * ((uint64)(n / k) * (uint64)((n / k) + 1)) / 2;
 
     return backtrack(n / k, k) + sum;
 }

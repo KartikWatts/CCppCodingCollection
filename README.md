@@ -84,11 +84,11 @@ sort(a, a + 5, compareTwoStudents);
     -   Tip 5: Master the Art of Testing Code
     -   Tip 6: Practice and More Practice
 
--   Modern computers are quite fast and can process 5 up to ≈ 100M (or 108 ; 1M = 1, 000, 000)
+-   Modern computers are quite fast and can process 5 up to ≈ 100M (or 10<sup>8</sup> ; 1M = 1, 000, 000)
     operations in a few seconds. You can use this information to determine if your algorithm will
     run in time. For example, if the maximum input size n is 100K (or 105 ; 1K = 1, 000), and
     your current algorithm has a time complexity of O(n<sup>2</sup>), common sense (or your calculator)
-    will inform you that (100K)2 or 1010 is a very large number that indicates that your algo-
+    will inform you that (100K)<sup>2</sup> or 1010 is a very large number that indicates that your algo-
     rithm will require (on the order of) hundreds of seconds to run. You will thus need to devise
     a faster (and also correct) algorithm to solve the problem. Suppose you find one that runs
     with a time complexity of O(n log<sub>2</sub> n). Now, your calculator will inform you that 105 log<sub>2</sub> 105
